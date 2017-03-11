@@ -38,9 +38,7 @@ public class MainActivity extends AppCompatActivity {
         //Check if the event is of interest
         if (event instanceof LamparaEvent) {
           final LamparaEvent lamparaEvent = (LamparaEvent) event;
-          Log.d("*****", String.valueOf(lamparaEvent.getEncendido()));
             Toast.makeText(MainActivity.this, String.valueOf(lamparaEvent.getEncendido()), Toast.LENGTH_LONG ).show();
-          //TODO encender lamparas
         }
       }
     });
