@@ -31,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    BezirkMiddleware.initialize(this);
-    Bezirk bezirk = BezirkMiddleware.registerZirk("Simulador");
 
     final EventSet eventSet = new EventSet(LamparaEvent.class);
 

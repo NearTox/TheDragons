@@ -1,5 +1,7 @@
 package com.thedragons.simulador.models;
 
+import android.content.Context;
+
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.android.BezirkMiddleware;
@@ -12,12 +14,19 @@ import com.thedragons.simulador.events.LamparaEvent;
  */
 
 public class Simulador {
-    public static void main (String args[]) {
-        BezirkMiddleware.initialize();
+
+    private Context contexto;
+
+    Simulador(Context contexto){
+        this.contexto = contexto;
+    }
+
+    public void recibir() {
+        BezirkMiddleware.initialize(this.contexto);
         Bezirk bezirk = BezirkMiddleware.registerZirk("Remote Control Receiver Zirk");
 
         final EventSet eventSet = new EventSet(LamparaEvent.class);
-        eventSet.setEventReceiver(new EventSet.EventReceiver(){
+        eventSet.setEventReceiver(new EventSet.EventReceiver() {
             @Override
             public void receiveEvent(Event event, ZirkEndPoint zirkEndPoint) {
                 //Check if the event is of interest
