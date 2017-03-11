@@ -27,7 +27,7 @@
             android:layout_width="131dp"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:src="@drawable/salaAmarillo"
+            android:src="@drawable/sala_amarillo"
             android:id="@+id/place1" />
 
         <Button
@@ -36,7 +36,7 @@
             android:layout_marginLeft="260dp"
             android:layout_marginRight="100dp"
             android:layout_marginTop="10dp"
-            android:background="@color/colorVerde"
+            android:background="@color/color_verde"
             android:id="@+id/verde" />
 
         <Button
@@ -45,7 +45,7 @@
             android:layout_marginLeft="260dp"
             android:layout_marginRight="100dp"
             android:layout_marginTop="50dp"
-            android:background="@color/colorAzul"
+            android:background="@color/color_azul"
             android:id="@+id/azul" />
 
         <Button
@@ -54,7 +54,7 @@
             android:layout_marginLeft="260dp"
             android:layout_marginRight="100dp"
             android:layout_marginTop="90dp"
-            android:background="@color/colorAmarillo"
+            android:background="@color/color_amarillo"
             android:id="@+id/amarillo" />
 
     </android.support.v7.widget.CardView>
