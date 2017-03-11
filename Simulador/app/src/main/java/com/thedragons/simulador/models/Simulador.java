@@ -7,7 +7,7 @@ import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.android.BezirkMiddleware;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
-import com.thedragons.simulador.events.LamparaEvent;
+import com.thedragons.events.LamparaEvent;
 
 /**
  * Created by efrain on 11/03/17.
