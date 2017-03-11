@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
 
+    setContentView(R.layout.activity_berzik_casa);
     imgSala = (ImageView) findViewById(R.id.place1);
     imgCocina = (ImageView) findViewById(R.id.place2);
     imgDormitorio = (ImageView) findViewById(R.id.place3);
@@ -50,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
     bezirk = BezirkMiddleware.registerZirk("Simulador de lamparas");
 
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
 
     final EventSet eventSet = new EventSet(LamparaEvent.class);
 
@@ -63,29 +63,48 @@ public class MainActivity extends AppCompatActivity {
 
           int id = lamparaEvent.getId();
           int encendido = lamparaEvent.getEncendido();
+          int color = lamparaEvent.getColor();
 
           if (encendido == ENCENDIDO) {
             switch (id) {
               case COCINA:
-                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocina_amarillo));
+                if(color == COLOR_AZUL) {
+                  imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocina_azul));
+                } else if(color == COLOR_VERDE) {
+                  imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocina_verde));
+                } else {
+                  imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocina_amarillo));
+                }
                 break;
               case SALA:
-                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.sala_amarillo));
+                if(color == COLOR_AZUL) {
+                  imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.sala_azul));
+                } else if(color == COLOR_VERDE) {
+                  imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.sala_verde));
+                } else {
+                  imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.sala_amarillo));
+                }
                 break;
               case DORMITORIO:
-                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorio_amarillo));
+                if(color == COLOR_AZUL) {
+                  imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorio_azul));
+                } else if(color == COLOR_VERDE) {
+                  imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorio_verde));
+                } else {
+                  imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorio_amarillo));
+                }
                 break;
             }
           }  else {
             switch (id) {
               case COCINA:
-                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocina_amarillo));
+                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocina_sala));
                 break;
               case SALA:
-                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.sala_amarillo));
+                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.sala_off));
                 break;
               case DORMITORIO:
-                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorio_amarillo));
+                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorio_off));
                 break;
             }
           }
