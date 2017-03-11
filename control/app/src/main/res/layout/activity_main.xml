@@ -7,7 +7,10 @@
     android:orientation="vertical"
   android:layout_height="match_parent"
   tools:context="com.thedragons.control.MainActivity">
-
+<ToggleButton
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:id="@+id/toggleCocina"/>
 
 
 </LinearLayout>
