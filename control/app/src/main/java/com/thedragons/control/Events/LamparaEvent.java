@@ -1,4 +1,4 @@
-package com.thedragons.control.Events;
+package com.thedragons.control.events;
 
 import com.bezirk.middleware.messages.Event;
 
