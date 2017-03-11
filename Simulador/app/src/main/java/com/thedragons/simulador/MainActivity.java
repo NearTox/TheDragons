@@ -9,10 +9,7 @@ import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.android.BezirkMiddleware;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
-import com.thedragons.simulador.events.LamparaEvent;
-
-import com.bezirk.middleware.Bezirk;
-import com.bezirk.middleware.android.BezirkMiddleware;
+import com.thedragons.events.LamparaEvent;
 
 public class MainActivity extends AppCompatActivity {
 
