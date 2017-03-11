@@ -3,6 +3,7 @@ package com.thedragons.simulador;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         //Check if the event is of interest
         if (event instanceof LamparaEvent) {
           final LamparaEvent lamparaEvent = (LamparaEvent) event;
-          Log.d("*****", String .valueOf(lamparaEvent.getEncendido()));
+          Log.d("*****", String.valueOf(lamparaEvent.getEncendido()));
+            Toast.makeText(MainActivity.this, String.valueOf(lamparaEvent.getEncendido()), Toast.LENGTH_LONG ).show();
           //TODO encender lamparas
         }
       }
