@@ -27,7 +27,7 @@
             android:layout_width="131dp"
             android:layout_height="match_parent"
             android:layout_gravity="left"
-            android:src="@drawable/sala_amarillo"
+            android:src="@drawable/salaAmarillo"
             android:id="@+id/place1" />
 
         <Button
