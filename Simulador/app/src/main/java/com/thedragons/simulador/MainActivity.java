@@ -3,6 +3,7 @@ package com.thedragons.simulador;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bezirk.middleware.Bezirk;
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         //Check if the event is of interest
         if (event instanceof LamparaEvent) {
           final LamparaEvent lamparaEvent = (LamparaEvent) event;
-            Toast.makeText(MainActivity.this, String.valueOf(lamparaEvent.getEncendido()), Toast.LENGTH_LONG ).show();
         }
       }
     });
