@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
   private static final int DORMITORIO = 23;
 
   private ToggleButton toggleCocina;
+  private ToggleButton toggleSala;
+  private ToggleButton toggleDormitorio;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     //Initialize the Bezirk service
     BezirkMiddleware.initialize(this);
     toggleCocina = (ToggleButton) findViewById(R.id.toggleCocina);
+    toggleDormitorio = (ToggleButton) findViewById(R.id.toggleDormitorio);
+    toggleSala = (ToggleButton) findViewById(R.id.toggleSala);
 
     //Register with BezirkMiddleware to get an instance of Bezirk API.
     //The parameter is any human-readable string for a name of your Zirk
@@ -46,6 +50,26 @@ public class MainActivity extends AppCompatActivity {
           bezirk.sendEvent(new LamparaEvent(COCINA, ENCENDIDO, COLOR_AMARILLO));
         } else {
           bezirk.sendEvent(new LamparaEvent(COCINA, APAGADO, COLOR_AMARILLO));
+        }
+      }
+    });
+    toggleDormitorio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+          bezirk.sendEvent(new LamparaEvent(DORMITORIO, ENCENDIDO, COLOR_AMARILLO));
+        } else {
+          bezirk.sendEvent(new LamparaEvent(DORMITORIO, APAGADO, COLOR_AMARILLO));
+        }
+      }
+    });
+    toggleSala.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+          bezirk.sendEvent(new LamparaEvent(SALA, ENCENDIDO, COLOR_AMARILLO));
+        } else {
+          bezirk.sendEvent(new LamparaEvent(SALA, APAGADO, COLOR_AMARILLO));
         }
       }
     });

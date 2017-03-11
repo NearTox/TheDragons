@@ -11,6 +11,14 @@
     android:layout_width="100dp"
     android:layout_height="100dp"
     android:id="@+id/toggleCocina"/>
+    <ToggleButton
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:id="@+id/toggleSala"/>
+    <ToggleButton
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:id="@+id/toggleDormitorio"/>
 
 
 </LinearLayout>
