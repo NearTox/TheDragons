@@ -1,8 +1,8 @@
 package com.thedragons.control;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Button;
@@ -10,7 +10,6 @@ import android.widget.Button;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.android.BezirkMiddleware;
 import com.thedragons.events.LamparaEvent;
-import com.thedragons.control.models.Lampara;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
   private Button cocinaVerde;
   private Button cocinaAzul;
-  private Button cocinaaAmarillo;
+  private Button cocinaAmarillo;
 
   private Button dormitorioVerde;
   private Button dormitorioAzul;
@@ -51,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
   private int salaEnabled = APAGADO;
   private int dormitorioEnabled = APAGADO;
 
-  protected void SendLampEvent(int id,boolean isChecked, int color) {
-    bezirk.sendEvent(new LamparaEvent(id,isChecked?1:0,color));
+  protected void SendLampEvent(int id,int isChecked, int color) {
+    bezirk.sendEvent(new LamparaEvent(id,isChecked,color));
   }
 
   @Override
@@ -66,6 +65,18 @@ public class MainActivity extends AppCompatActivity {
     toggleDormitorio = (Switch) findViewById(R.id.dormitorio_on);
     toggleSala = (Switch) findViewById(R.id.sala_on);
 
+    cocinaAmarillo = (Button) findViewById(R.id.cocina_amarillo);
+    cocinaAzul = (Button) findViewById(R.id.cocina_azul);
+    cocinaVerde = (Button) findViewById(R.id.cocina_verde);
+
+    salaAmarillo = (Button) findViewById(R.id.sala_amarillo);
+    salaAzul = (Button) findViewById(R.id.sala_azul);
+    salaVerde = (Button) findViewById(R.id.sala_verde);
+
+    dormitorioAmarillo = (Button) findViewById(R.id.dormitorio_amarillo);
+    dormitorioAzul = (Button) findViewById(R.id.dormitorio_azul);
+    dormitorioVerde = (Button) findViewById(R.id.dormitorio_verde);
+
     //Register with BezirkMiddleware to get an instance of Bezirk API.
     //The parameter is any human-readable string for a name of your Zirk
     bezirk = BezirkMiddleware.registerZirk("Control de lamparas");
@@ -73,19 +84,86 @@ public class MainActivity extends AppCompatActivity {
     toggleCocina.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
       @Override
       public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        SendLampEvent(COCINA, isChecked, cocinaColor);
+        cocinaEnabled=isChecked?1:0;
+        SendLampEvent(COCINA, cocinaEnabled, cocinaColor);
       }
     });
     toggleDormitorio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
       @Override
       public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        SendLampEvent(DORMITORIO, isChecked, dormitorioColor);
+        dormitorioEnabled=isChecked?1:0;
+        SendLampEvent(DORMITORIO, dormitorioEnabled, dormitorioColor);
       }
     });
     toggleSala.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
       @Override
       public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        SendLampEvent(SALA, isChecked, salaColor);
+        salaEnabled=isChecked?1:0;
+        SendLampEvent(SALA, salaEnabled, salaColor);
+      }
+    });
+
+    cocinaAzul.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        cocinaColor=COLOR_AZUL;
+        SendLampEvent(COCINA, cocinaEnabled, cocinaColor);
+      }
+    });
+    cocinaAmarillo.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        cocinaColor=COLOR_AMARILLO;
+        SendLampEvent(COCINA, cocinaEnabled, cocinaColor);
+      }
+    });
+    cocinaVerde.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        cocinaColor=COLOR_VERDE;
+        SendLampEvent(COCINA, cocinaEnabled, cocinaColor);
+      }
+    });
+    dormitorioAzul.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        dormitorioColor=COLOR_AZUL;
+        SendLampEvent(DORMITORIO, dormitorioEnabled, dormitorioColor);
+      }
+    });
+    dormitorioAmarillo.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        dormitorioColor=COLOR_AMARILLO;
+        SendLampEvent(DORMITORIO, dormitorioEnabled, dormitorioColor);
+      }
+    });
+    dormitorioVerde.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        dormitorioColor=COLOR_VERDE;
+        SendLampEvent(DORMITORIO, dormitorioEnabled, dormitorioColor);
+      }
+    });
+    salaAzul.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        salaColor=COLOR_AZUL;
+        SendLampEvent(SALA, salaEnabled, salaColor);
+      }
+    });
+    salaAmarillo.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        salaColor=COLOR_AMARILLO;
+        SendLampEvent(SALA, salaEnabled, salaColor);
+      }
+    });
+    salaVerde.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        salaColor=COLOR_VERDE;
+        SendLampEvent(SALA, salaEnabled, salaColor);
       }
     });
   }
