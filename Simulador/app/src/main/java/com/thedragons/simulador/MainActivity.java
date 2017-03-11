@@ -67,25 +67,25 @@ public class MainActivity extends AppCompatActivity {
           if (encendido == ENCENDIDO) {
             switch (id) {
               case COCINA:
-                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocinaAmarillo));
+                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocina_amarillo));
                 break;
               case SALA:
-                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.salaAmarillo));
+                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.sala_amarillo));
                 break;
               case DORMITORIO:
-                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorioAmarillo));
+                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorio_amarillo));
                 break;
             }
           }  else {
             switch (id) {
               case COCINA:
-                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocinaAmarillo));
+                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocina_amarillo));
                 break;
               case SALA:
-                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.salaAmarillo));
+                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.sala_amarillo));
                 break;
               case DORMITORIO:
-                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorioAmarillo));
+                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorio_amarillo));
                 break;
             }
           }
