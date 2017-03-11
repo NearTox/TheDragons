@@ -1,5 +1,6 @@
 package com.thedragons.simulador;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,8 +16,28 @@ import com.thedragons.events.LamparaEvent;
 
 public class MainActivity extends AppCompatActivity {
 
+  private ImageView imgSala;
+  private ImageView imgCocina;
+  private ImageView imgDormitorio;
+
+  private static final int COLOR_AMARILLO = 37;
+  private static final int COLOR_AZUL = 38;
+  private static final int COLOR_VERDE = 39;
+
+  private static final int ENCENDIDO = 1;
+  private static final int APAGADO = 0;
+  private static final int APAGAR_TODAS = 100;
+
+  private static final int COCINA = 21;
+  private static final int SALA = 22;
+  private static final int DORMITORIO = 23;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+
+    imgSala = (ImageView) findViewById(R.id.place1);
+    imgCocina = (ImageView) findViewById(R.id.place2);
+    imgDormitorio = (ImageView) findViewById(R.id.place3);
 
     Bezirk bezirk;
 
@@ -39,6 +60,36 @@ public class MainActivity extends AppCompatActivity {
         //Check if the event is of interest
         if (event instanceof LamparaEvent) {
           final LamparaEvent lamparaEvent = (LamparaEvent) event;
+
+          int id = lamparaEvent.getId();
+          int encendido = lamparaEvent.getEncendido();
+
+          if (encendido == ENCENDIDO) {
+            switch (id) {
+              case COCINA:
+                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocinaAmarillo));
+                break;
+              case SALA:
+                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.salaAmarillo));
+                break;
+              case DORMITORIO:
+                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorioAmarillo));
+                break;
+            }
+          }  else {
+            switch (id) {
+              case COCINA:
+                imgCocina.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.cocinaAmarillo));
+                break;
+              case SALA:
+                imgSala.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.salaAmarillo));
+                break;
+              case DORMITORIO:
+                imgDormitorio.setImageDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.dormitorioAmarillo));
+                break;
+            }
+          }
+
         }
       }
     });
