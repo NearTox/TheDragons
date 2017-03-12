@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Button;
 
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
   private Button dormitorioAzul;
   private Button dormitorioAmarillo;
 
+  private ImageView imgCocina;
+  private ImageView imgSala;
+  private ImageView imgDormitorio;
+
   private int cocinaColor = COLOR_AMARILLO;
   private int salaColor = COLOR_AMARILLO;
   private int dormitorioColor = COLOR_AMARILLO;
@@ -76,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
     dormitorioAmarillo = (Button) findViewById(R.id.dormitorio_amarillo);
     dormitorioAzul = (Button) findViewById(R.id.dormitorio_azul);
     dormitorioVerde = (Button) findViewById(R.id.dormitorio_verde);
+
+    imgCocina = (ImageView) findViewById(R.id.cocina_img);
+    imgSala = (ImageView) findViewById(R.id.sala_img);
+    imgDormitorio = (ImageView) findViewById(R.id.dormitorio_img);
 
     //Register with BezirkMiddleware to get an instance of Bezirk API.
     //The parameter is any human-readable string for a name of your Zirk
@@ -166,8 +175,32 @@ public class MainActivity extends AppCompatActivity {
         SendLampEvent(SALA, salaEnabled, salaColor);
       }
     });
+
+    imgDormitorio.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+          toggleSala.setChecked(false);
+          toggleCocina.setChecked(false);
+          toggleDormitorio.setChecked(true);
+      }
+    });
+
+    imgSala.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        toggleSala.setChecked(true);
+        toggleCocina.setChecked(false);
+        toggleDormitorio.setChecked(false);
+      }
+    });
+
+    imgCocina.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        toggleSala.setChecked(false);
+        toggleCocina.setChecked(true);
+        toggleDormitorio.setChecked(false);
+      }
+    });
   }
-
-
-
 }
