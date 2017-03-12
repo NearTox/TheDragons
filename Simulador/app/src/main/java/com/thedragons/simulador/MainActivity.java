@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
 
     setContentView(R.layout.activity_berzik_casa);
-    imgSala = (ImageView) findViewById(R.id.place1);
-    imgCocina = (ImageView) findViewById(R.id.place2);
+    imgSala = (ImageView) findViewById(R.id.place2);
+    imgCocina = (ImageView) findViewById(R.id.place1);
     imgDormitorio = (ImageView) findViewById(R.id.place3);
 
     Bezirk bezirk;
